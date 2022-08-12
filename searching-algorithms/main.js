@@ -1,6 +1,44 @@
 // TODO: UDNERSTAND BASICS SEARCHING ALGORITHMS AND TYPES OF ALGORITHMS
 // TODO: Linear Search
 
+
+const state = [ "Andhra Pradesh",
+                "Arunachal Pradesh",
+                "Assam",
+                "Bihar",
+                "Chhattisgarh",
+                "Goa",
+                "Gujarat",
+                "Haryana",
+                "Himachal Pradesh",
+                "Jammu and Kashmir",
+                "Jharkhand",
+                "Karnataka",
+                "Kerala",
+                "Madhya Pradesh",
+                "Maharashtra",
+                "Manipur",
+                "Meghalaya",
+                "Mizoram",
+                "Nagaland",
+                "Odisha",
+                "Punjab",
+                "Rajasthan",
+                "Sikkim",
+                "Tamil Nadu",
+                "Telangana",
+                "Tripura",
+                "Uttarakhand",
+                "Uttar Pradesh",
+                "West Bengal",
+                "Andaman and Nicobar Islands",
+                "Chandigarh",
+                "Dadra and Nagar Haveli",
+                "Daman and Diu",
+                "Delhi",
+                "Lakshadweep",
+                "Puducherry"]
+
 function linearSearch(arr, value) {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] === value) {
@@ -28,4 +66,4 @@ function linearSearch(arr = [], target) {
     return -1;
 }
 
-linearSearch([1,2,3,4,5,6,7,8,9,10], 6)
+linearSearch(state, "Karnataka")
