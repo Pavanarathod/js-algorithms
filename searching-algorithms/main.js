@@ -11,3 +11,21 @@ function linearSearch(arr, value) {
 }
 
 console.log(linearSearch([1, 2, 3, 4, 5, , 5], 10));
+
+function linearSearch(arr = [], target) {
+    if(arr.length === 0){
+        return;
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        console.log(i,arr.length, target)
+        if(arr[i] === target){
+            console.log(i)
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+linearSearch([1,2,3,4,5,6,7,8,9,10], 6)
