@@ -15,7 +15,7 @@ function binarySearch(arr, target) {
 
   //   console.log("index", start, middle, end);
   if (arr[middle] === target) {
-    return middle;
+    return `found the value at index ${middle} and the value is ${arr[middle]}`;
   }
   return -1;
 }
@@ -59,7 +59,7 @@ const state = [
   "Puducherry",
 ];
 
-binarySearch(state, "Uttarakhand");
+console.log(binarySearch(state, "Uttarakhand"));
 
 // [2,5,6,9,13,15,28,30]
 //  S     M           E
