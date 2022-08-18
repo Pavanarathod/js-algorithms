@@ -20,4 +20,16 @@ function pivot(arr = [], start = 0, end = arr.length + 1) {
   return swapIndex;
 }
 
-pivot([4, 8, 2, 1, 5, 7, 6, 3]);
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right); // 3
+    // LEFT
+    quickSort(arr, left, pivotIndex - 1);
+    // right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+
+  return arr;
+}
+
+quickSort([4, 8, 2, 1, 5, 7, 6, 3]);
