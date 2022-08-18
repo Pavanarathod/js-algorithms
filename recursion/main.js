@@ -47,4 +47,53 @@ recursiveFactorial(6)
                                      return 1;
 */
 
-recursiveFactorial(5);
+// recursiveFactorial(5)
+
+function collectOddValues(arr) {
+  let results = [];
+
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+
+    if (helperInput[0] % 2 !== 0) {
+      results.push(helperInput[0]);
+    }
+
+    helper(helperInput.slice(1));
+  }
+
+  helper(arr);
+
+  return results;
+}
+
+// collectOddValues([1,2,3,4,5,6])
+
+function pureRecursion(arr = []) {
+  let results = [];
+
+  if (arr.length === 0) {
+    return results;
+  }
+
+  if (arr[0] % 2 !== 0) {
+    results.push(arr[0]);
+  }
+
+  results = results.concat(pureRecursion(arr.slice(1)));
+  return results;
+}
+
+/**
+  pureRecursion([1,2,3,4,5])
+          [1].concat(pureRecursion([2,3,4,5]))
+                    [].concat(pureRecursion([3,4,5]))
+                             [3].concat(pureRecursion([4,5]))
+                                         [].concat(pureRecursion([5]))
+                                                  [5].concat(pureRecursion([]))
+                                                            [];      
+*/
+
+pureRecursion([1, 2, 3, 4, 5]);
