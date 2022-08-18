@@ -39,3 +39,16 @@ function mergeSort(arr = []) {
 
 const result = mergeSort([10, 24, 76, 73, 73, 72, 1, 9, 11, 55]);
 console.log(result);
+
+/**
+ * *                               [10, 24, 73, 76]
+ * *                          mergeSort([10, 24, 76, 73])
+ * *
+ * *                [10, 24]                merge             [73, 76]
+ * *          mergeSort([10, 24])                       mergeSort([76, 73])
+ *
+ *  *              [10]  merge      [24]                [76]      merge         [73]
+ *  *      mergeSort([10])   mergeSort([24])      mergeSort([76])    mergeSort([73])
+ *
+
+ */
