@@ -51,11 +51,64 @@ class SinglyLinkedList {
 
   shift() {
     if (!this.head) return undefined;
-    let current = this.head;
+    let currentHead = this.head;
 
-    this.head = current.next;
+    this.head = currentHead.next;
     this.length--;
-    return current;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+
+  unshift(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
+
+  set(value, index) {
+    if (index < 0 || index >= this.length) return null;
+    let foundIndex = this.get(index);
+    if (foundIndex) {
+      foundIndex.val = value;
+      return true;
+    }
+    return false;
+  }
+
+  insert(value, index) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unshift(value);
+    let newNode = new Node(value);
+    let previous = this.get(index - 1);
+    let temp = previous.next;
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
   }
 }
 
