@@ -30,45 +30,37 @@ class SinglyLinkedList {
     let current = this.head;
     let newTail = current;
 
-    console.log("current before loop", current);
-    console.log("new tail before loop", newTail);
-
-    console.log("******************Loop begins***********");
-
-    let loopCount = 1;
     while (current.next) {
-      console.log("*****Loop count******", loopCount);
-      console.log("current", current);
-      console.log("new tail", newTail);
-      console.log("our next current will be this node", current.next);
-      // previos node not the next node;
-      loopCount++;
+      /**
+       ** newTail is not the next node it is always behind the next node then we can set the next node of the new tail to null;
+       */
       newTail = current;
       current = current.next;
     }
 
-    console.log("******************Loop ends***********");
-
-    console.log("current after loop", current);
-    console.log("new tail after loop", newTail);
-
     this.tail = newTail;
     this.length--;
+    // this where we are setting it to null.
     this.tail.next = null;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
     return current;
   }
 
-  traverse() {
+  shift() {
+    if (!this.head) return undefined;
     let current = this.head;
-    while (current) {
-      console.log(current.val);
-      current = current.next;
-    }
+
+    this.head = current.next;
+    this.length--;
+    return current;
   }
 }
 
 const list = new SinglyLinkedList();
-list.push("React");
-list.push("Anguler");
-list.push("Vue");
-list.push("Jquery");
+list.push("Pavan");
+list.push("Abhishek");
+list.push("Manjunath");
+list.push("Prajwal");
