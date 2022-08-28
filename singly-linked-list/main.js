@@ -95,10 +95,15 @@ class SinglyLinkedList {
     if (index === this.length) return !!this.push(value);
     if (index === 0) return !!this.unshift(value);
 
+    /**
+     * * previous next = newNode
+     * * save the rest of the node to temp
+     * * nre Node .next = temp;
+     */
     const newNode = new Node(value);
 
-    const previousNode = this.get(index - 1);
-    const temp = previousNode.next;
+    const previousNode = this.get(index - 1); //* we have the prevoius node with all the data;
+    const temp = previousNode.next; //* save the rest of the node to temp;
     previousNode.next = newNode;
     newNode.next = temp;
 
@@ -112,7 +117,7 @@ class SinglyLinkedList {
     if (index === 0) return !!this.shift();
     const previousNode = this.get(index - 1);
 
-    let removed = previousNode.next;
+    const removed = previousNode.next;
     previousNode.next = removed.next;
     this.length--;
     return removed;
@@ -132,3 +137,9 @@ list.push("first");
 list.push("second");
 list.push("third");
 list.push("four");
+list.push("five");
+list.push("six");
+list.push("seven");
+list.push("eight");
+list.push("nine");
+list.push("ten");
