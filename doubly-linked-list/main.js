@@ -128,6 +128,30 @@ class DoublyLinkedList {
     return true;
   }
 
+  remove(index) {
+    if (index < 0 || index >= this.length) return false;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const previousNode = this.get(index - 1);
+    const removeNode = previousNode.next;
+    const afterNode = removeNode.next;
+
+    previousNode.next = afterNode;
+    afterNode.prev = previousNode;
+
+    // const removeNode = this.get(index);
+    // removeNode.prev.next = removeNode.next;
+
+    // removeNode.next.prev = removeNode.prev;
+
+    // removeNode.next = null;
+    // removeNode.prev = null;
+
+    this.length--;
+    return removeNode;
+  }
+
   listTraverse() {
     let current = this.head;
 
