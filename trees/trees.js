@@ -82,14 +82,45 @@ class BST {
       }
     }
 
+    if(!found) return "Value does not exists.."
     return current;
+  }
+
+
+  BFS() {
+    let data = [];
+    let queue = [];
+
+    queue.push(this.root)
+    
+    while(queue.length) {
+      let node = queue.shift();
+      data.push({
+        value: node.value,
+        left: node.left ? node.left.value : null,
+        right: node.right ? node.right.value : null,
+      })
+      if(node.left) queue.push(node.left)
+      if(node.right) queue.push(node.right)
+    }
+    return data;
   }
 }
 
+// QUEUE: [10]
+// DATA: []
+
+//        10
+//     6      15
+//   3   8        20
+
+
+
 const tree = new BST();
 tree.insert(10);
-tree.insert(4);
-tree.insert(2);
-tree.insert(12);
+tree.insert(6);
 tree.insert(15);
+tree.insert(3);
+tree.insert(8);
 tree.insert(20);
+  
