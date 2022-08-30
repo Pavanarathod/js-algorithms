@@ -47,43 +47,42 @@ class BST {
   find(value) {
     if (this.root === null) return false;
     if (this.root.value === value) return true;
-    else {
-      let current = this.root;
-      let found = false;
 
-      while (current && !found) {
-        if (value < current.value) {
-          current = current.left;
-        } else if (value > current.value) {
-          current = current.right;
-        } else {
-          return true;
-        }
+    let current = this.root;
+    let found = false;
+
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        return true;
       }
-
-      if (!found) return false;
-      return current;
     }
+
+    if (!found) return false;
+    return current;
   }
 
   search(value) {
     if (this.root === null) return false;
     if (this.root.value === value) return true;
-    else {
-      let current = this.root;
 
-      while (current && !found) {
-        if (value < current.value) {
-          current = current.left;
-        } else if (value > current.value) {
-          current = current.right;
-        } else {
-          found = true;
-        }
+    let current = this.root;
+    let found = false;
+
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
       }
-
-      return current ? current : "not found";
     }
+
+    return current;
   }
 }
 
