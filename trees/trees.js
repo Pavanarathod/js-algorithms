@@ -82,26 +82,21 @@ class BST {
       }
     }
 
-    if(!found) return "Value does not exists.."
+    if (!found) return "Value does not exists..";
     return current;
   }
-
 
   BFS() {
     let data = [];
     let queue = [];
 
-    queue.push(this.root)
-    
-    while(queue.length) {
+    queue.push(this.root);
+
+    while (queue.length) {
       let node = queue.shift();
-      data.push({
-        value: node.value,
-        left: node.left ? node.left.value : null,
-        right: node.right ? node.right.value : null,
-      })
-      if(node.left) queue.push(node.left)
-      if(node.right) queue.push(node.right)
+      data.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
     return data;
   }
@@ -114,8 +109,6 @@ class BST {
 //     6      15
 //   3   8        20
 
-
-
 const tree = new BST();
 tree.insert(10);
 tree.insert(6);
@@ -123,4 +116,3 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
-  
